@@ -15,6 +15,7 @@ sklearn==0.21.2
 filterpy==1.4.5
 easydict==1.9
 ffmpeg==2.8.15
+numba==
 ```
 
 
@@ -22,7 +23,7 @@ ffmpeg==2.8.15
 
 Here are the steps to reproduce our results:
 
-1. Make sure the corresponding model file `best.pt` is in the folder `weights`
+1. Download the corresponding model file [best.pt](https://drive.google.com/open?id=1Usf1lidUOiUXchiaZHU9Q3HiLiBf9Npf) and put it in the folder `weights`
 2. Make sure the raw video files and required txt files are in the folder `Data/dataset_A`
 3. Run `track.py` to get separate result files in the folder `output` for all 31 videos
 4. Run `result.py` to combine all 31 csv files and get the single submission file `track1.txt`
