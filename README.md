@@ -45,7 +45,7 @@ We use yolov3 as our detector, which is initialized by the public COCO pre-train
 	* The annotation text files in `yolov3_pytorch/data/labels/`
 	* `object.data` and `object.names` in `yolov3_pytorch/data`, which describe the input data and output classes
 2. Run `yolov3_pytorch/weights/download_yolov3_weights.sh` to downdload the official coco pretrained model from [https://pjreddie.com/darknet/yolo/](https://pjreddie.com/darknet/yolo/)
-3. Use the following train command to finetine the pretrained model. The `best.pt` file is the final model.
+3. Use the following train command to finetine the pretrained model. The `train_best.pt` file is the final model.
 ```
 cd yolov3_pytorch
 unzip data/labels.zip
