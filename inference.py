@@ -37,41 +37,41 @@ def read_class_names(class_file_name):
 
 def letterbox(img, new_shape=(416, 416), color=(114, 114, 114),
               auto=True, scaleFill=False, scaleup=True, interp=cv2.INTER_AREA):
-    # Resize image to a 32-pixel-multiple rectangle https://github.com/ultralytics/yolov3/issues/232
-    shape = img.shape[:2]  # current shape [height, width]
+    
+    shape = img.shape[:2]  
     if isinstance(new_shape, int):
         new_shape = (new_shape, new_shape)
 
-    # Scale ratio (new / old)
+    
     r = max(new_shape) / max(shape)
-    if not scaleup:  # only scale down, do not scale up (for better test mAP)
+    if not scaleup:  
         r = min(r, 1.0)
 
     # Compute padding
-    ratio = r, r  # width, height ratios
+    ratio = r, r  
     new_unpad = int(round(shape[1] * r)), int(round(shape[0] * r))
-    dw, dh = new_shape[1] - new_unpad[0], new_shape[0] - new_unpad[1]  # wh padding
-    if auto:  # minimum rectangle
-        dw, dh = np.mod(dw, 64), np.mod(dh, 64)  # wh padding
+    dw, dh = new_shape[1] - new_unpad[0], new_shape[0] - new_unpad[1] 
+    if auto:  
+        dw, dh = np.mod(dw, 64), np.mod(dh, 64)  
     elif scaleFill:  # stretch
         dw, dh = 0.0, 0.0
         new_unpad = new_shape
-        ratio = new_shape[0] / shape[1], new_shape[1] / shape[0]  # width, height ratios
+        ratio = new_shape[0] / shape[1], new_shape[1] / shape[0]  
 
-    dw /= 2  # divide padding into 2 sides
+    dw /= 2 
     dh /= 2
 
     if shape[::-1] != new_unpad:  # resize
-        img = cv2.resize(img, new_unpad, interpolation=interp)  # INTER_AREA is better, INTER_LINEAR is faster
+        img = cv2.resize(img, new_unpad, interpolation=interp) 
     top, bottom = int(round(dh - 0.1)), int(round(dh + 0.1))
     left, right = int(round(dw - 0.1)), int(round(dw + 0.1))
-    img = cv2.copyMakeBorder(img, top, bottom, left, right, cv2.BORDER_CONSTANT, value=color)  # add border
+    img = cv2.copyMakeBorder(img, top, bottom, left, right, cv2.BORDER_CONSTANT, value=color)  
     return img, ratio, (dw, dh)
 
 def get_boxes(frame):
 
     img = letterbox(frame, new_shape=img_size)[0]
-    img = img[:, :, ::-1].transpose(2, 0, 1)  # BGR to RGB, to 3x416x416
+    img = img[:, :, ::-1].transpose(2, 0, 1) 
     img = np.ascontiguousarray(img)
     
     img = torch.from_numpy(img).to(device)
@@ -110,9 +110,7 @@ device=''
 img_size=512
 iou_thres=0.6
 output_path='output'
-#weights = os.path.join('weights', 'best2.pt')
-#weights = '/nfs/project/wanghaowen/yolov3_master/weights/last.pt'
-weights = '/home/luban/nfs/project/wanghaowen/yolov3_master/weights/best.pt'
+weights = os.path.join('weights', 'best.pt')
 device = torch_utils.select_device(device)
 
 model = Darknet(cfg, img_size)
@@ -129,7 +127,7 @@ end_video = sys.argv[2]
 for video_id in range(int(start_video),int(end_video)+1):
 
     print('video_id:%s' % str(video_id))
-    video_name = video_id_dict[video_id]  # cam_5.mp4
+    video_name = video_id_dict[video_id]  
     cam_id = int(video_name.split('.')[0].split('_')[1])
     mov_nums, lines, directions, mov_rois = get_lines(cam_id)
     roi_nums, rois = get_rois(cam_id, data_path)
@@ -266,7 +264,7 @@ for video_id in range(int(start_video),int(end_video)+1):
             indexIDs.append(int(track[4]))
             memory[indexIDs[-1]] = boxes[-1]
 
-# ------------------------------------------------------------------------------------------------------------------
+
 
         if len(boxes) > 0:
             i = int(0)
@@ -360,7 +358,6 @@ for video_id in range(int(start_video),int(end_video)+1):
                         data[indexids[mov]] = [str(video_id), frame_count, mov, name, roi_flag]
                         break
 
-# ---------------------------------------------------------------------------------------------------------------
 
                 detect_flag = False
                 for mov in range(mov_nums):
