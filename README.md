@@ -6,16 +6,17 @@ This repository contains our code for Challenge Track 1: Vehicle Counts by Class
 * python3.6
 
 ```
-pytorch==1.2
+torch>=1.5
 torchvision==0.4
-opencv==4.2
+opencv-python==4.2
 pandas==0.24.2
 numpy==1.17.3
 sklearn==0.21.2
 filterpy==1.4.5
 easydict==1.9
 ffmpeg==2.8.15
-numba==
+numba==0.46.0
+tensorboard>=1.14
 ```
 
 
