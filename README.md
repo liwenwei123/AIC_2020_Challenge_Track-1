@@ -6,8 +6,8 @@ This repository contains our code for Challenge Track 1: Vehicle Counts by Class
 * python3.6
 
 ```
-torch>=1.5
-torchvision==0.4
+torch==1.5.0+cu101
+torchvision==0.6.0+cu101
 opencv-python==4.2
 pandas==0.24.2
 numpy==1.17.3
@@ -26,12 +26,12 @@ Here are the steps to reproduce our results:
 
 1. Download the corresponding model file [best.pt](https://drive.google.com/open?id=1Usf1lidUOiUXchiaZHU9Q3HiLiBf9Npf) and put it in the folder `weights`
 2. Make sure the raw video files and required txt files are in the folder `Data/dataset_A`
-3. Run `track.py` to get separate result files in the folder `output` for all 31 videos
+3. Run `inference.py` to get separate result files in the folder `output` for all 31 videos
 4. Run `result.py` to combine all 31 csv files and get the single submission file `track1.txt`
 ```
 mkdir weights
 mkdir output
-python3 track.py 1 31
+python3 inference.py 1 31
 python3 result.py
 ```
 
@@ -58,7 +58,7 @@ python3 train.py --data data/object.data --cfg cfg/yolov3.cfg --epochs 200
 
 We selected 5 videos from the provided training videos (Data set A), including `cam3.mp4, cam5.mp4, cam7.mp4, cam8.mp4, cam20.mp4`. A subset of 3835 frames was extracted from these videos for manual annotation.
 
-You can use the following command to extract frames directly from the videos.
+You can use the following command to extract frames directly from the videos.And put the frames under `yolov3_pytorch/data/images`
 ```
 ffmpeg -i cam_x.mp4 -r 1 -f image2 yolov3_pytorch/data/images/%06d.jpg
 ```
