@@ -29,9 +29,10 @@ Here are the steps to reproduce our results:
 3. Run `track.py` to get separate result files in the folder `output` for all 31 videos
 4. Run `result.py` to combine all 31 csv files and get the single submission file `track1.txt`
 ```
+mkdir weights
 mkdir output
-python track.py 1 31
-python result.py
+python3 track.py 1 31
+python3 result.py
 ```
 
 We use YOLOv3+sort to detect and track vehicles. To count the movement, we use a detection line (detection line) for each movement by annotating the provided training videos (Data set A), as defined in `get_lines.py`. If a vehicle passes the detection line, the count of the corresponding movement will increase by 1 after a short pre-defined delay calculated based on the training data.
