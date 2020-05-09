@@ -109,15 +109,17 @@ conf_thres=0.3
 device=''
 img_size=512
 iou_thres=0.6
-output='output'
-weights = os.path.join('weights', 'best.pt')
-
+output_path='output'
+#weights = os.path.join('weights', 'best2.pt')
+#weights = '/nfs/project/wanghaowen/yolov3_master/weights/last.pt'
+weights = '/home/luban/nfs/project/wanghaowen/yolov3_master/weights/best.pt'
 device = torch_utils.select_device(device)
 
 model = Darknet(cfg, img_size)
 attempt_download(weights)
 model.load_state_dict(torch.load(weights, map_location=device)['model'])
 model.to(device).eval()
+
 
 # input: start_video_id end_video_id 
 start_video = sys.argv[1]
@@ -135,7 +137,7 @@ for video_id in range(int(start_video),int(end_video)+1):
     counts = [0] * mov_nums
     counts_roi = [0] * roi_nums
 
-    vs = cv2.VideoCapture(datasetA_path + video_name)
+    vs = cv2.VideoCapture(os.path.join(datasetA_path,video_name))
 
     (W, H) = (None, None)
     writer = None
@@ -160,7 +162,7 @@ for video_id in range(int(start_video),int(end_video)+1):
 # ----------------------------------------------------------------------------------------------------------------------
 
     # save output result of every video
-    csv_file_processed = open(os.path.join('.', 'output_pytorch', '{}.csv'.format(video_id), 'w')
+    csv_file_processed = open(os.path.join('.', output_path, '{}.csv'.format(video_id)), 'w')
     csv_writer_processed = csv.writer(csv_file_processed)
     csv_writer_processed.writerow(['video_id', 'frame_id', 'movement_id', 'vehicle_class_id'])
 

@@ -4,7 +4,7 @@ import os
 def get_video_id(path):
     video_id_dict = {}
 
-    with open(path+'list_video_id.txt','r') as f:
+    with open(os.path.join(path,'list_video_id.txt'),'r') as f:
         for line in f:
             line = line.rstrip()
             video = line.split(' ')
@@ -15,7 +15,8 @@ def get_video_id(path):
 
 
 def get_rois(cam_id,data_path):
-    cam_path = os.path.join('ROIs', 'cam_{}.txt'.format(cam_id))
+    print(data_path)
+    cam_path = os.path.join(data_path, 'ROIs/cam_{}.txt'.format(cam_id))
     with open(cam_path, 'r') as f:
         rois=[]
         for line in f:
