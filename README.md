@@ -17,6 +17,10 @@ easydict==1.9
 ffmpeg==2.8.15
 numba==0.46.0
 tensorboard>=1.14
+pycocotools==2.0.0
+tqdm==4.33.0
+pillow==6.1.0
+
 ```
 
 
@@ -45,12 +49,11 @@ We use yolov3 as our detector, which is initialized by the public COCO pre-train
 	* The training images (extracted from the raw training videos) in `data/images/`
 	* The annotation text files in `yolov3_pytorch/data/labels/`
 	* `object.data` and `object.names` in `yolov3_pytorch/data`, which describe the input data and output classes
-2. Downdload the official coco pretrained model [yolov3.weights](https://drive.google.com/open?id=1PfJ4nPGTF9OAIuN9IUkWwu4pRV6lPNxV) from [https://pjreddie.com/darknet/yolo/](https://pjreddie.com/darknet/yolo/)
+2. Downdload the official coco pretrained model [yolov3.weights](https://drive.google.com/open?id=1PfJ4nPGTF9OAIuN9IUkWwu4pRV6lPNxV) from [https://pjreddie.com/darknet/yolo/](https://pjreddie.com/darknet/yolo/) and put it in `yolov3_pytorch/weights`
 3. Use the following train command to finetine the pretrained model. The `train_best.pt` file is the final model.
 ```
 cd yolov3_pytorch
 unzip data/labels.zip
-./weights/download_yolov3_weights.sh
 python3 train.py --data data/object.data --cfg cfg/yolov3.cfg --epochs 200
 ```
 
