@@ -17,7 +17,7 @@ except:
 
 wdir = 'weights' + os.sep  # weights dir
 last = wdir + 'last.pt'
-best = wdir + 'best.pt'
+best = wdir + 'train_best.pt'
 results_file = 'results.txt'
 
 # Hyperparameters https://github.com/ultralytics/yolov3/issues/310
@@ -363,7 +363,7 @@ def train():
         fresults, flast, fbest = 'results%s.txt' % n, 'last%s.pt' % n, 'best%s.pt' % n
         os.rename('results.txt', fresults)
         os.rename(wdir + 'last.pt', wdir + flast) if os.path.exists(wdir + 'last.pt') else None
-        os.rename(wdir + 'best.pt', wdir + fbest) if os.path.exists(wdir + 'best.pt') else None
+        os.rename(wdir + 'train_best.pt', wdir + fbest) if os.path.exists(wdir + 'train_best.pt') else None
         if opt.bucket:  # save to cloud
             os.system('gsutil cp %s gs://%s/results' % (fresults, opt.bucket))
             os.system('gsutil cp %s gs://%s/weights' % (wdir + flast, opt.bucket))
