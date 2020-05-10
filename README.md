@@ -24,7 +24,7 @@ tensorboard>=1.14
 
 Here are the steps to reproduce our results:
 
-1. Download the corresponding model file [best.pt](https://drive.google.com/open?id=1Usf1lidUOiUXchiaZHU9Q3HiLiBf9Npf) and put it in the folder `weights`
+1. Download the corresponding model file [best.pt](https://drive.google.com/open?id=1RC0weOuPemqMUuEUvi7nVTugaqyhlzaP) and put it in the folder `weights`
 2. Make sure the raw video files and required txt files are in the folder `Data/dataset_A`
 3. Run `inference.py` to get separate result files in the folder `output` for all 31 videos
 4. Run `result.py` to combine all 31 csv files and get the single submission file `track1.txt`
