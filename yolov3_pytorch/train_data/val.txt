@@ -1,0 +1,10 @@
+data/images/00000502_cam3.jpg
+data/images/00000254_cam3.jpg
+data/images/00001578_cam3.jpg
+data/images/00000687_cam3.jpg
+data/images/00000822_cam5.jpg
+data/images/00000770_cam5.jpg
+data/images/00001035_cam5.jpg
+data/images/00000106_cam8.jpg
+data/images/00000608_cam5.jpg
+data/images/00000187_cam8.jpg
