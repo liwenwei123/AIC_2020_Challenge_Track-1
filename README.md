@@ -1,6 +1,8 @@
 # AIC 2020 Challenge Track 1 by Orange-Control
 
-This repository contains the code for [the 3rd place](https://www.aicitychallenge.org/challenge-winners-2020/) of _Challenge Track 1: Multi-Class Multi-Movement Vehicle Counting_ in __2020 AI City Challenge__ @ CVPR, by Team __Orange-Control__ from _DiDi AI Labs, Didi Chuxing_ and _Beijing University of Posts and Telecommunications_.
+[3rd place](https://www.aicitychallenge.org/challenge-winners-2020/) (with the best Efficiency Score) in _Challenge Track 1: Multi-Class Multi-Movement Vehicle Counting_ in __2020 AI City Challenge__ @ CVPR. 
+
+By Team __Orange-Control__ from _AI Labs, Didi Chuxing (DiDi AI Labs)_ and _Beijing University of Posts and Telecommunications (BUPT)_.
 
 
 ### Requirements
