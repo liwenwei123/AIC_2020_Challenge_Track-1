@@ -2,7 +2,8 @@
 
 [3rd place](https://www.aicitychallenge.org/challenge-winners-2020/) (with the best Efficiency Score) in _Challenge Track 1: Multi-Class Multi-Movement Vehicle Counting_ in __2020 AI City Challenge__ @ CVPR. 
 
-By Team __Orange-Control__ from _AI Labs, Didi Chuxing (DiDi AI Labs)_ and _Beijing University of Posts and Telecommunications (BUPT)_.
+By Team __Orange-Control__ from <sup>1</sup>_AI Labs, Didi Chuxing (DiDi AI Labs)_ and <sup>2</sup>_Beijing University of Posts and Telecommunications (BUPT)_.
+Team Members: Wenwei Li<sup>2,1</sup>, Haowen Wang<sup>2,1</sup>, Yue Shi<sup>1</sup>, Ke Dong<sup>1</sup>, Bo Jiang<sup>1</sup>, Zhengping Che<sup>1</sup> (team leader), Jian Tang<sup>1</sup> (advisor), and Xiuquan Qiao<sup>2</sup> (advisor).
 
 
 ### Requirements
